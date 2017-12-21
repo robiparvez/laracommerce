@@ -24,7 +24,7 @@
                 <!-- Sub menu -->
                 <ul>
                     <li>
-                        <a href="{{route('admin.index')}}">
+                        <a href="{{route('products.create')}}">
                             Add Product
                         </a>
                     </li>
