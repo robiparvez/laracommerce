@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{asset('dist/css/admin.css')}}">
+        <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     </head>
 
     <body>

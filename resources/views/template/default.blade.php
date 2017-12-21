@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="{{ asset('dist/css/foundation.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/admin.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
         <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
     </head>
