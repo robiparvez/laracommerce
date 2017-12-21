@@ -1,0 +1,5 @@
+#complete configured starter pack
+
+#make auth FIRST AND FOREMOST
+
+#copy and start developing!
