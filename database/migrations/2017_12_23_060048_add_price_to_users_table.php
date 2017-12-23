@@ -10,7 +10,7 @@ class AddPriceToUsersTable extends Migration
     {
         Schema::table('products', function (Blueprint $table)
         {
-            $table->double('price', 10, 2)->index();
+            $table->double('price', 10, 2)->after('name')->index();
         });
     }
 

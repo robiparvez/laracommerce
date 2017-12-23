@@ -27,24 +27,32 @@
 
 		                <div class="form-group">
 		                    {!! Form::label('name', 'Name: ', []) !!}
-									{!! Form::text('name', null, ['class' => 'form-control']) !!}
+							{!! Form::text('name', null, ['class' => 'form-control']) !!}
 		                </div>
+
+		                <div class="form-group">
+		                    {!! Form::label('price', 'Price: ', []) !!}
+							{!! Form::text('price', null, ['class' => 'form-control']) !!}
+
+		                </div>
+
 		                <div class="form-group">
 		                    {!! Form::label('description', 'Description: ', []) !!}
-									{!! Form::text('description', null, ['class' => 'form-control']) !!}
+							{!! Form::text('description', null, ['class' => 'form-control']) !!}
 		                </div>
 		                <div class="form-group">
 		                    {!! Form::label('size', 'Size: ', []) !!}
-									{{ Form::select('size', [ 'small' => 'Small', 'medium' => 'Medium', 'large' => 'Large'], null, ['class' => 'form-control']) }}
+							{{ Form::select('size', [ 'small' => 'Small', 'medium' => 'Medium', 'large' => 'Large'], null, ['class' => 'form-control']) }}
 		                </div>
 		                <div class="form-group">
 		                    {!! Form::label('category_id', 'Categories: ', []) !!}
-									{!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Select Category']) !!}
+							{!! Form::select('category_id', $categories, null, ['class' => 'form-control', 'placeholder' => 'Select Category']) !!}
 		                </div>
 		                <div class="form-group">
 		                    {!! Form::label('image', 'Upload Image: ', []) !!}
-									{!! Form::file('image', ['class' => 'btn-spacing']) !!}
+							{!! Form::file('image', ['class' => 'btn-spacing']) !!}
 		                </div>
+
 		                {!! Form::submit('Create Product', ['class' => 'btn btn-primary btn-block']) !!}
 
 					{!! Form::close() !!}

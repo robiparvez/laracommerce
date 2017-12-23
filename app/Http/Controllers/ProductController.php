@@ -27,6 +27,7 @@ class ProductController extends Controller
         //validation
         $this->validate($request, [
             'name'        => 'required',
+            'price'        => 'required',
             'description' => 'required',
             'size'        => 'required',
             'image'       => 'image|mimes:jpg,jpeg,png|max:10000',
