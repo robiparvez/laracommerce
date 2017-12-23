@@ -13,7 +13,7 @@
 
             <li class="submenu">
 
-                <a href="#">
+                <a href="{{ route('products.index') }}">
                     <i class="glyphicon glyphicon-list">
                     </i>
                     Products
