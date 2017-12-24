@@ -9,21 +9,29 @@
             @yield('title', 'Ecommerce Home')
         </title>
 
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+
         <link rel="stylesheet" href="{{ asset('dist/css/foundation.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/admin.css') }}"/>
-        <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
     </head>
     <body>
-        @include('partials._nav')
+        @include('template.partials._nav')
 
         @yield('content')
 
-        @include('partials._footer')
+        @include('template.partials._footer')
 
         <script src="dist/js/vendor/jquery.js"></script>
         <script src="dist/js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+
     </body>
 </html>

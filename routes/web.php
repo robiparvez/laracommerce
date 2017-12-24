@@ -3,7 +3,7 @@
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
@@ -12,7 +12,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //PROJECT ROUTES
 Route::get('/', ['uses' => 'FrontController@index'])->name('home');
 
-Route::get('/shirts', ['uses' => 'FrontController@shirts'])->name('shirts');
+Route::get('shirts', ['uses' => 'FrontController@shirts'])->name('shirts');
 
 Route::get('single', ['uses' => 'FrontController@single'])->name('single');
 

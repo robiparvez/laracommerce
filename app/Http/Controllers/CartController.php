@@ -33,23 +33,26 @@ class CartController extends Controller
     public function edit($id)
     {
         $products  = Product::find($id);
-        $sizeArray = ['small' => 'Small', 'medium' => 'Medium', 'large' => 'Large'];
+        // $sizeArray = ['small' => 'Small'];
 
-        Cart::add($id, $products->name, 1, $products->price, $sizeArray);
+        Cart::add($id, $products->name, 1, $products->price,['size' => 'Small']);
+        // return back()->with('cart_add', 'Cart Added Successfully!');
 
-        // $products_to_cart = Cart::add($id, $products->name, 1, $products->price, $sizeArray);
+        return redirect()->route('cart.index')->with('cart_add', 'Item Added to Cart Successfully!');
 
-        // return view('cart.create', compact(['products', 'products_to_cart']));
 
     }
 
     public function update(Request $request, $id)
     {
-        //
+        Cart::update($id, $request->qty);
+
+        return back()->with('cart_update', 'Item Updated to Cart Successfully!');
     }
 
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+        return back()->with('cart_delete', 'Item Deleted to Cart Successfully!');
     }
 }
