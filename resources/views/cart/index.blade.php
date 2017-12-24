@@ -6,8 +6,6 @@
 
 <div class="container">
 	<div class="row">
-
-
 		<div class="col-md-8 col-md-offset-2">
 
 			<div class="panel panel-primary" style="margin-top: 20px;">
@@ -70,13 +68,25 @@
 					<tfoot>
 						<tr>
 							<td colspan="3">&nbsp;</td>
+							<td>Sub-Total</td>
+							<td>{{ Cart::subtotal() }}</td>
+						</tr>
+						<tr>
+							<td colspan="3">&nbsp;</td>
+							<td>Tax</td>
+							<td>{{ Cart::tax() }}</td>
+						</tr>
+						<tr>
+							<td colspan="3">&nbsp;</td>
 							<td>Total</td>
 							<td>{{ Cart::total() }}</td>
 						</tr>
 						<tr>
-							<td colspan="3">&nbsp;</td>
+							<td><a href="{{ route('home') }}" class="btn btn-primary btn-block">Go to Home</a></td>
+							<td colspan="1">&nbsp;</td>
 							<td>&nbsp;</td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout</a></td>
+							<td colspan="2"><a href="#" class="btn btn-success btn-block">Checkout</a></td>
+
 						</tr>
 					</tfoot>
 

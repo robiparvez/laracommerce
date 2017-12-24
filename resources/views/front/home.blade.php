@@ -35,7 +35,7 @@
                                     Add to Cart
                                 </a>
                                 <a href="#">
-                                    <img src="{{ asset('images/' . $shirt->image) }}" height="200" width="200">
+                                    <img src="{{ asset('images/' . $shirt->image) }}" width="300" height="300">
                                 </a>
                             </div>
                             <a href="#">
@@ -44,7 +44,7 @@
                                 </h3>
                             </a>
                             <h5>
-                                {{ $shirt->price }}
+                                &#2547;{{ $shirt->price }}
                             </h5>
                             <p>
                                 {{ $shirt->description }}

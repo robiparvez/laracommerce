@@ -38,7 +38,7 @@ class CartController extends Controller
         Cart::add($id, $products->name, 1, $products->price,['size' => 'Small']);
         // return back()->with('cart_add', 'Cart Added Successfully!');
 
-        return redirect()->route('cart.index')->with('cart_add', 'Item Added to Cart Successfully!');
+        return redirect()->route('cart.index')->with('cart_add', 'Item Added to Cart!');
 
 
     }
@@ -53,6 +53,6 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::remove($id);
-        return back()->with('cart_delete', 'Item Deleted to Cart Successfully!');
+        return back()->with('cart_delete', 'Item Deleted From Cart!');
     }
 }
