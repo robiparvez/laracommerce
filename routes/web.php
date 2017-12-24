@@ -7,6 +7,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
+
+
+//PROJECT ROUTES
 Route::get('/', ['uses' => 'FrontController@index'])->name('home');
 
 Route::get('/shirts', ['uses' => 'FrontController@shirts'])->name('shirts');
@@ -26,4 +29,6 @@ Route::group(['prefix' => 'admin'], function ()
 
 });
 
+// Cart
+Route::resource('cart', 'CartController');
 

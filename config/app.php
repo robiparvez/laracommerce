@@ -164,6 +164,14 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+        // New packages
+        Collective\Html\HtmlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
+        Laravel\Cashier\CashierServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -176,15 +184,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-        // New packages
-        Collective\Html\HtmlServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
-        Laravel\Cashier\CashierServiceProvider::class
-
-
-
 
     ],
 
@@ -240,6 +239,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Stripe' => Cartalyst\Stripe\Laravel\Facades\Stripe::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
 
     ],
 

@@ -8,6 +8,7 @@ class FrontController extends Controller
     public function index()
     {
         $shirts = Product::all();
+
         return view('front.home', compact('shirts'));
     }
 
