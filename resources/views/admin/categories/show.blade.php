@@ -11,6 +11,7 @@
 			<thead>
 				<tr>
 					<th>Name</th>
+        			<th>Price</th>
         			<th>Description</th>
         			<th>Size</th>
         			<th>Image</th>
@@ -25,6 +26,7 @@
 
 						<tr class="text-justify">
 							<td>{{ $product->name }}</td>
+							<td>{{ $product->price }}</td>
 							<td>{{ $product->description }}</td>
 							<td>{{ $product->size }}</td>
 							<td><img src="{{ asset('images/' . $product->image) }}" height="200" width="200"></td>

@@ -13,6 +13,7 @@
 
     @include('admin.layout.includes.header')
 
+        <!--Page Content-->
         <div class="page-content">
             @if(Session::has('message'))
                 <div class="alert alert-info">
@@ -24,6 +25,7 @@
 
                 @include('admin.layout.includes.sidenav')
 
+                <!--Display area after sidenav-->
                 <div class="col-md-10 display-area">
                     <div class="row text-center">
                         <div class="col-md-10 col-md-offset-1">

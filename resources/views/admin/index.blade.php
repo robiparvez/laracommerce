@@ -3,6 +3,6 @@
 
 @section('content')
 
-    <h3>Admin</h3>
+    <h3>Welcome to the Admin Dashboard!</h3>
 
 @endsection

@@ -6,6 +6,12 @@
 	    <div class="row">
 	        <div class="col-md-8 col-md-offset-2">
 
+				@if (Session::has('created'))
+					<div class="alert alert-info">
+							{{ Session::get('created') }}
+					</div>
+				@endif
+
 	            <table class="table table-striped table-hover">
 	            	<thead>
 	            		<tr>
@@ -19,7 +25,7 @@
 	            	<tbody>
 
 	            		@forelse ($products as $p)
-	            			<tr>
+	            			<tr class="text-justify">
 		            			<td>{{ $p->name }}</td>
 		            			<td>{{ $p->description }}</td>
 		            			<td>{{ $p->size }}</td>

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Category;
 use App\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -27,29 +27,26 @@ class ProductController extends Controller
         //validation
         $this->validate($request, [
             'name'        => 'required',
-            'price'        => 'required',
+            'price'       => 'required',
             'description' => 'required',
             'size'        => 'required',
             'image'       => 'image|mimes:jpg,jpeg,png|max:10000',
 
         ]);
+
         //Handling Image
         $form_input = $request->except('image');
-
         $image_init = $request->image;
-
         if ($image_init)
         {
             $image_name = $image_init->getClientOriginalName();
-
             $destinationPath = public_path() . '/images';
-
             $image_init = $image_init->move($destinationPath, $image_name);
-
             $form_input['image'] = $image_name;
         }
         Product::create($form_input);
-        return redirect()->route('admin.index');
+
+        return redirect()->route('products.index')->with('created', 'Products Successfully Created!');
     }
 
     public function show($id)

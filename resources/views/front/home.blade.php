@@ -24,17 +24,18 @@
 
     <!-- Latest SHirts -->
     <div class="row">
+
             @forelse($shirts->chunk(3) as $chunk)
 
                 @foreach ($chunk as $shirt)
                     <div class="small-3 columns">
                         <div class="item-wrapper">
                             <div class="img-wrapper">
-                                <a class="button expanded add-to-cart">
+                                <a class="button expanded add-to-cart" href="{{ route('cart.edit', $shirt->id) }}">
                                     Add to Cart
                                 </a>
                                 <a href="#">
-                                    <img src="{{ asset('images/' . $shirt->image) }}">
+                                    <img src="{{ asset('images/' . $shirt->image) }}" height="200" width="200">
                                 </a>
                             </div>
                             <a href="#">
