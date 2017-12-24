@@ -12,7 +12,6 @@
 	            			<th>Name</th>
 	            			<th>Description</th>
 	            			<th>Size</th>
-	            			{{-- <th>Categories</th> --}}
 	            			<th>Image</th>
 	            			<th>Action</th>
 	            		</tr>
