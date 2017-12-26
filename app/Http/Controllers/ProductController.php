@@ -46,7 +46,7 @@ class ProductController extends Controller
         }
         Product::create($form_input);
 
-        return redirect()->route('products.index')->with('created', 'Products Successfully Created!');
+        return redirect()->route('products.index')->with('created', 'Product Created Successfully !');
     }
 
     public function show($id)

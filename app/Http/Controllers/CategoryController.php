@@ -9,13 +9,14 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        // $products   = Product::find();
         $categories = Category::all();
-        return view('admin.categories.index', compact(['categories', 'products']));
+        return view('admin.categories.index', compact('categories'));
     }
 
     public function create()
     {
+        $categories = Category::all();
+        return view('admin.categories.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -23,9 +24,8 @@ class CategoryController extends Controller
         $this->validate($request, [
             'name' => 'required',
         ]);
-
         Category::create($request->all());
-        return redirect()->back();
+        return redirect()->route('categories.index')->with('create_cat', 'Category Successfully Created!!');
     }
 
     public function show($id)

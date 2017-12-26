@@ -5,10 +5,10 @@
 @section('content')
 
 	{{-- for jquery --}}
-	<meta name="csrf-token" content="{{ csrf_token() }}" />
+	{{-- <meta name="csrf-token" content="{{ csrf_token() }}" /> --}}
 
 	{{-- Modal --}}
-	<a class="btn btn-lg btn-primary" data-toggle="modal" href='#modal-id'>Add Category</a>
+	{{-- <a class="btn btn-lg btn-primary" data-toggle="modal" href='#modal-id'>Add Category</a>
 	<div class="modal fade" id="modal-id">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -37,8 +37,14 @@
 				{!! Form::close() !!}
 			</div>
 		</div>
-	</div>
+	</div> --}}
 	{{-- Modal ends --}}
+
+	@if (Session::has('create_cat'))
+		<div class="alert alert-success">
+				{{ Session::get('create_cat') }}
+		</div>
+	@endif
 
 	{{-- Display Table --}}
 	<div class="panel panel-default" style="margin-top: 30px;">
@@ -70,7 +76,7 @@
 	</div>
 
 	{{-- form processing script --}}
-	<script type="text/javascript">
+	{{-- <script type="text/javascript">
 		function submitForm()
 		{
 		    var name = $('#inputName').val();
@@ -112,7 +118,7 @@
 		        });
 		    }
 		}
-	</script>
+	</script> --}}
 @endsection
 
 {{-- Product Display on Category Index page, need relationnship == confused --}}

@@ -7,7 +7,7 @@
 <div class="panel panel-default" style="margin-top: 30px;">
 	<div class="panel-heading text-left"><h3>Products</h3></div>
 	<div class="panel-body">
-		<table class="table table-striped table-hover">
+		<table class="table table-striped table-hover" id="table-product">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -34,6 +34,11 @@
 
 					@empty
 						<h3>No Product is Available.</h3>
+						<script type="text/javascript">
+							$(document).ready(function() {
+								$('#table-product').hide();
+							});
+						</script>
 					@endforelse
 				@endif
 			</tbody>

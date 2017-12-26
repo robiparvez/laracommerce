@@ -32,20 +32,20 @@ class CartController extends Controller
 
     public function edit($id)
     {
-        $products  = Product::find($id);
-        // $sizeArray = ['small' => 'Small'];
+        $products = Product::find($id);
 
-        Cart::add($id, $products->name, 1, $products->price,['size' => 'Small']);
-        // return back()->with('cart_add', 'Cart Added Successfully!');
+        Cart::add($id, $products->name, 1, $products->price, ['size' => 'large']);
 
         return redirect()->route('cart.index')->with('cart_add', 'Item Added to Cart!');
-
 
     }
 
     public function update(Request $request, $id)
     {
-        Cart::update($id, $request->qty);
+        Cart::update($id, [
+            'qty'     => $request->qty,
+            'options' => ['size' => $request->size], //size is user-defined
+        ]);
 
         return back()->with('cart_update', 'Item Updated to Cart Successfully!');
     }
@@ -53,6 +53,7 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::remove($id);
+
         return back()->with('cart_delete', 'Item Deleted From Cart!');
     }
 }

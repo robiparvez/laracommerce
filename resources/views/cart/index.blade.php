@@ -28,36 +28,41 @@
 				<div class="panel-body">
 					<table class="table table-hover">
 					<thead>
-						<tr>
+						<tr class="text-muted">
 							<th>Name</th>
 							<th>Price</th>
 							<th>Quantity</th>
 							<th>Size</th>
-							<th>Action</th>
+							<th colspan="2" class="text-center">Action</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody class="input-sm">
 						@forelse ($cartItems as $cart)
 
 							<tr class="text-justify">
+
 								<td>{{ $cart->name }}</td>
+
 								<td>{{ $cart->price }}</td>
+
+								{!! Form::open(['route' => ['cart.update', $cart->rowId], 'method' => 'PUT']) !!}
 								<td>
-
-									{!! Form::open(['route' => ['cart.update', $cart->rowId], 'method' => 'PUT']) !!}
-										{!! Form::text('qty', $cart->qty, []) !!}
-										{!! Form::submit('Change', ['class' => 'btn btn-xs btn-primary']) !!}
-									{!! Form::close() !!}
-
+									{!! Form::text('qty', $cart->qty, ['class' => 'form-control']) !!}
 								</td>
-								<td>{{ $cart->options->has('size') ? $cart->options->size : '' }}</td>
-
 								<td>
-
+									{!! Form::select('size',['1' => 'small','2' => 'medium','3' => 'large'], $cart->options->has('size') ? $cart->options->size : '' , [] ) !!}
+								</td>
+								<td>
+									{!! Form::submit('Change', ['class' => 'btn btn-sm btn-primary']) !!}
+								{!! Form::close() !!}
+								</td>
+								<td colspan="2">
+									{{-- delete --}}
 									{!! Form::open( ['route' => ['cart.destroy',$cart->rowId], 'method' => 'DELETE']) !!}
-										{!! Form::submit('Delete', ['class' => 'btn btn-xs btn-danger']) !!}
-									{!! Form::close() !!}
 
+										{!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
+
+									{!! Form::close() !!}
 								</td>
 							</tr>
 						@empty
@@ -67,23 +72,24 @@
 
 					<tfoot>
 						<tr>
-							<td colspan="3">&nbsp;</td>
+							<td colspan="4">&nbsp;</td>
 							<td>Sub-Total</td>
 							<td>{{ Cart::subtotal() }}</td>
 						</tr>
 						<tr>
-							<td colspan="3">&nbsp;</td>
+							<td colspan="4">&nbsp;</td>
 							<td>Tax</td>
 							<td>{{ Cart::tax() }}</td>
 						</tr>
 						<tr>
-							<td colspan="3">&nbsp;</td>
+							<td colspan="4">&nbsp;</td>
 							<td>Total</td>
 							<td>{{ Cart::total() }}</td>
 						</tr>
 						<tr>
 							<td><a href="{{ route('home') }}" class="btn btn-primary btn-block">Go to Home</a></td>
 							<td colspan="1">&nbsp;</td>
+							<td>&nbsp;</td>
 							<td>&nbsp;</td>
 							<td colspan="2"><a href="#" class="btn btn-success btn-block">Checkout</a></td>
 
