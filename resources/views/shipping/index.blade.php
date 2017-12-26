@@ -7,7 +7,15 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
 
-          <form class="form-horizontal" role="form" action="{{ route('shippingPage') }}" method="POST">
+          @if ($errors->count() > 0)
+              @foreach ($errors as $error)
+                <div class="help-block">
+                    <strong>{{ $error }}</strong>
+                </div>
+              @endforeach
+          @endif
+
+          <form class="form-horizontal" role="form" action="{{ route('address.store') }}" method="POST">
             {{ csrf_field() }}
             <fieldset>
               <legend class="text-center">Shipping Details</legend>

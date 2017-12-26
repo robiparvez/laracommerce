@@ -10,7 +10,7 @@ class User extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'name', 'email', 'password'
+        'name', 'email', 'password',
     ];
 
     protected $hidden = [
@@ -20,5 +20,10 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->admin;
+    }
+
+    public function hasAddress()
+    {
+        return $this->hasMany(Shipping::class);
     }
 }

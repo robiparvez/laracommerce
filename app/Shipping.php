@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shipping extends Model
 {
-    protected $timestamps = false;
+    // public $timestamps = false;
 
-    protected $fillable = ['address', 'city', 'state', 'zipcode', 'country', 'phone']
+    protected $fillable = ['address', 'city', 'state', 'zipcode', 'country', 'phone'];
+
 
 }

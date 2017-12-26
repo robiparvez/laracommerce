@@ -34,3 +34,9 @@ Route::resource('cart', 'CartController');
 Route::get('shipping-index','ShippingController@step1')->name('shipping');
 
 Route::post('shipping-post','ShippingController@shippingPost')->name('shippingPage');
+
+
+Route::resource('address', 'AddressController');
+
+
+Route::get('thank-you','ThanksController@getMessage')->name('thanks');
