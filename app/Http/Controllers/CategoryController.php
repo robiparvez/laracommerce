@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -10,7 +11,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.categories.index', compact(['categories', 'products']));
     }
 
     public function create()
@@ -30,11 +31,9 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        $categories = Category::all();
-
-        // Relationhsip
-        $products_rel = Category::find($id)->products;
-        return view('admin.categories.show', compact(['categories', 'products_rel']));
+        // One to many Relationhsip -- possible in show() only by find($id), not in index
+        $products_rel = Category::find($id);
+        return view('admin.categories.show', compact('products_rel'));
     }
 
     public function edit($id)

@@ -7,14 +7,14 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $shirts = Product::all();
+        $shirts = Product::orderBy('id', 'DESC')->get();
 
         return view('front.home', compact('shirts'));
     }
 
     public function shirts()
     {
-        $shirts = Product::all();
+        $shirts = Product::orderBy('id', 'DESC')->get();
         return view('front.shirts', compact('shirts'));
     }
 

@@ -10,15 +10,15 @@ class ProductController extends Controller
 {
     public function index()
     {
+        // Many(products) to One(category) Relationhsip
         $products = Product::all();
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products')); // has category_id field in db
 
     }
 
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-
         return view('admin.products.create')->with('categories', $categories);
     }
 
@@ -44,7 +44,7 @@ class ProductController extends Controller
             $image_init = $image_init->move($destinationPath, $image_name);
             $form_input['image'] = $image_name;
         }
-        Product::create($form_input);
+        Product::create($form_input)->order_by();
 
         return redirect()->route('products.index')->with('created', 'Product Created Successfully !');
     }

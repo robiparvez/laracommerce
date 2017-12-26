@@ -28,7 +28,7 @@
             @forelse($shirts->chunk(3) as $chunk)
 
                 @foreach ($chunk as $shirt)
-                    <div class="small-3 columns">
+                    <div class="small-3 columns pull-left">
                         <div class="item-wrapper">
                             <div class="img-wrapper">
                                 <a class="button expanded add-to-cart" href="{{ route('cart.edit', $shirt->id) }}">

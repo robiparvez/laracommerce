@@ -19,10 +19,9 @@
 			</thead>
 			<tbody>
 				{{-- Product Display on Category show page here, need relationnship --}}
-
 				@if(!empty($products_rel))
 
-					@forelse ($products_rel as $product)
+					@forelse ($products_rel->products as $product)
 
 						<tr class="text-justify">
 							<td>{{ $product->name }}</td>

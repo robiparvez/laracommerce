@@ -29,3 +29,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
 // Cart
 Route::resource('cart', 'CartController');
+
+
+Route::get('shipping-index','ShippingController@step1')->name('shipping');
+
+Route::post('shipping-post','ShippingController@shippingPost')->name('shippingPage');
