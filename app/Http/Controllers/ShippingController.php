@@ -7,21 +7,11 @@ use Illuminate\Http\Request;
 
 class ShippingController extends Controller//CheckoutController - tuts
 {
-    public function step1()
-    {
-        if (Auth::check()) //if user is authenticated,
-        {
-            return view('front.shipping.index'); //redirect to shipping
-        }
-        else
-        {
-            return redirect()->route('login'); //else tell them to login/register
-        }
-    }
 
-    public function shippingPost()
+    public function shippingIndex()
     {
-        dd('caught shipping post');
+        // dd('caught shipping index');
+        return view('front.shipping.index');
     }
 
     public function payment()
