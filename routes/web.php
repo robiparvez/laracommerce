@@ -32,7 +32,6 @@ Route::resource('cart', 'CartController');
 
 
 Route::get('shipping-index','ShippingController@step1')->name('shipping');
-
 Route::post('shipping-post','ShippingController@shippingPost')->name('shippingPage');
 
 
@@ -40,3 +39,7 @@ Route::resource('address', 'AddressController');
 
 
 Route::get('thank-you','ThanksController@getMessage')->name('thanks');
+
+
+Route::get('payment-info', 'ShippingController@payment')->name('payment');
+Route::post('payment-stored', 'ShippingController@storePayment')->name('payment.store');

@@ -7,12 +7,13 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
 
-          @if ($errors->count() > 0)
-              @foreach ($errors as $error)
-                <div class="help-block">
-                    <strong>{{ $error }}</strong>
-                </div>
-              @endforeach
+          {{-- Errors --}}
+          @if(count($errors) > 0)
+            @foreach($errors->all() as $error)
+              <div class="alert alert-danger">
+                <strong>{{ $error }}</strong>
+              </div>
+            @endforeach
           @endif
 
           <form class="form-horizontal" role="form" action="{{ route('address.store') }}" method="POST">

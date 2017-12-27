@@ -8,6 +8,6 @@ class ThanksController extends Controller
 {
     public function getMessage()
     {
-    	return view('thanks.index');
+    	return view('front.thanks.index');
     }
 }

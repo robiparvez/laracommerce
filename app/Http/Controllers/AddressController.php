@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\AddressValidation;
 use Auth;
+use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
@@ -17,33 +18,25 @@ class AddressController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(AddressValidation $request)
     {
-        $this->validate($request,[
-            'address' => 'required',
-            'city'  => 'required',
-            'state' => 'required',
-            'zipcode' => 'required|integer',
-            'country' => 'required',
-            'phone' => 'required|integer',
-        ]);
-
-        //
-        if (Auth::check() && !Auth::user()->isAdmin()) {
+        if (Auth::check() && !Auth::user()->isAdmin())
+        {
             Auth::user()->hasAddress()->create($request->all());
-            //redirect to a thank you page
-            return redirect()->route('thanks');
-        }else{
+
+            return redirect()->route('payment');
+        }
+        else
+        {
+
+            return redirect()->route('admin.index')->with('admin_not', 'Admin Cannot Not Buy Things!');
             // dd('admin failed');
-            return redirect()->route('admin.index')->with('admin_not','Admin Cannot Not Buy Things!');
         }
 
     }
 
     public function show($id)
     {
-        ;
-
     }
 
     public function edit($id)

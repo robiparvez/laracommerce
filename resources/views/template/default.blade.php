@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/admin.css') }}"/>
 
+        <link rel="stylesheet" href="{{ asset('dist/css/stripe.css') }}"/>
+
     </head>
     <body>
         @include('template.partials._nav')
@@ -31,7 +33,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-
+        <script src="https://js.stripe.com/v3/" type="text/javascript"></script>
 
     </body>
 </html>
