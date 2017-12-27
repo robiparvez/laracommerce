@@ -1,2 +1,2 @@
-# laracommerce
-ecommerce web application
+# LaraCommerce
+An Ecommerce web application
