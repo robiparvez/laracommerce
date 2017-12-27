@@ -47,7 +47,7 @@
                                 &#2547;{{ $shirt->price }}
                             </h5>
                             <p>
-                                {{ $shirt->description }}
+                                {{ $shirt->description }} testing
                             </p>
                         </div>
                     </div>

@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 use Auth;
 
 class ShippingController extends Controller
 {
+    /** [step1 description] */
     public function step1()
     {
         if (Auth::check()) //if user is authenticated,
@@ -13,12 +13,13 @@ class ShippingController extends Controller
         }
         else
         {
-            return redirect()->route('login');//else tell them to login/register
+            return redirect()->route('login'); //else tell them to login/register
         }
     }
 
+    /** [shippingPost description] */
     public function shippingPost()
     {
-       dd('caught shipping post');
+        dd('caught shipping post');
     }
 }
