@@ -34,7 +34,8 @@ class Order extends Model
         }
     }
 
-    public function getUser(){
-        ;
+    public function getUser()
+    {
+        return $this->belongsTo(User::class);
     }
 }
