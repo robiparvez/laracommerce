@@ -2,7 +2,7 @@
 
 Auth::routes();
 
-//PROJECT ROUTES
+// get
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/logout', 'Auth\LoginController@logout');
@@ -13,6 +13,22 @@ Route::get('shirts', ['uses' => 'FrontController@shirts'])->name('shirts');
 
 Route::get('single', ['uses' => 'FrontController@single'])->name('single');
 
+Route::get('thank-you', 'ThanksController@getMessage')->name('thanks');
+
+Route::get('payment-info', 'ShippingController@payment')->name('payment');
+
+
+//post
+Route::post('payment-stored', 'ShippingController@storePayment')->name('payment.store');
+
+
+//resource
+Route::resource('cart', 'CartController');
+Route::resource('address', 'AddressController');
+
+
+
+//group
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function ()
 {
     Route::get('/', function ()
@@ -26,20 +42,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
 });
 
-// Cart
-Route::resource('cart', 'CartController');
 
-/**
- * Authenticated Users are redirected to shipping page after hitting checkout
- */
 Route::group(['middleware' => 'auth'], function ()
 {
+	//Authenticated Users are redirected to shipping page after hitting checkout
     Route::get('shipping-index', 'ShippingController@shippingIndex')->name('shipping');
 });
 
-Route::resource('address', 'AddressController');
 
-Route::get('thank-you', 'ThanksController@getMessage')->name('thanks');
-
-Route::get('payment-info', 'ShippingController@payment')->name('payment');
-Route::post('payment-stored', 'ShippingController@storePayment')->name('payment.store');
+Route::get('orders-info', 'OrderController@getOrdersByType')->name('orders');

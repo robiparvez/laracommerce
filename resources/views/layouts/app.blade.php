@@ -58,12 +58,14 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a href="{{ route('home') }}">Go to home</a>
+
                                         <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+
+                                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+
                                             Logout
                                         </a>
-                                        <a href="{{ route('home') }}">Go to home</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}

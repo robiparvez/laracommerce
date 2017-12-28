@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -22,8 +22,15 @@ class User extends Authenticatable
         return $this->admin;
     }
 
+    // user(one) to address(many)
     public function hasAddress()
     {
         return $this->hasMany(Shipping::class);
+    }
+
+    // user(one) to orders(many)
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
