@@ -26,5 +26,6 @@ class OrderController extends Controller
         }
 
         return view('admin.orders.index', compact('orders'));
+        dd($orders);
     }
 }

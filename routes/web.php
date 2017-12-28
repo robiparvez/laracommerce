@@ -17,16 +17,12 @@ Route::get('thank-you', 'ThanksController@getMessage')->name('thanks');
 
 Route::get('payment-info', 'ShippingController@payment')->name('payment');
 
-
 //post
 Route::post('payment-stored', 'ShippingController@storePayment')->name('payment.store');
-
 
 //resource
 Route::resource('cart', 'CartController');
 Route::resource('address', 'AddressController');
-
-
 
 //group
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function ()
@@ -40,14 +36,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::resource('categories', 'CategoryController');
 
-});
+    Route::get('orders/{option?}', 'OrderController@getOrdersByType');
 
+});
 
 Route::group(['middleware' => 'auth'], function ()
 {
-	//Authenticated Users are redirected to shipping page after hitting checkout
+    //Authenticated Users are redirected to shipping page after hitting checkout
     Route::get('shipping-index', 'ShippingController@shippingIndex')->name('shipping');
 });
-
-
-Route::get('orders-info', 'OrderController@getOrdersByType')->name('orders');
