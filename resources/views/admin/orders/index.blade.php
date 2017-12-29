@@ -14,11 +14,12 @@
 						<thead>
 							<tr>
 								<th>Ordered By</th>
+
 								<th>Total Price</th>
 
 								<th>Quantity</th>
-								<th>Price</th>
 
+								<th>Price</th>
 
 								<th>Delivered Status</th>
 							</tr>
@@ -29,12 +30,12 @@
 							        <td>{{ $order->user->name }}</td>
 							        <td>{{ $order->total_price}}</td>
 
-							        {!! Form::open([]) !!}
+							       {{--  {!! Form::open([]) !!}
 
-									{!! Form::label('delivered', 'Delivered', []) !!}
-									<input type="checkbox" name="delivered" class="form-control pull-right">
+										{!! Form::label('delivered', 'Delivered', []) !!}
+										<input type="checkbox" name="delivered" class="form-control pull-right">
 
-								{!! Form::close() !!}
+									{!! Form::close() !!} --}}
 
 							        @forelse ($order->products as $item)
 							    	<td>{{ $item->pivot->qty }}</td>
