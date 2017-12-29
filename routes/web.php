@@ -38,6 +38,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     Route::get('orders/{option?}', 'OrderController@getOrdersByType');
 
+    Route::post('delivered/{id}', 'OrderController@checkboxDeliver')->name('checkbox.deliver');
+
 });
 
 Route::group(['middleware' => 'auth'], function ()

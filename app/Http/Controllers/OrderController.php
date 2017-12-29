@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
@@ -21,11 +22,27 @@ class OrderController extends Controller
         else
         {
             //if no option is passed,then get all
-            //
             $orders = Order::all();
         }
 
         return view('admin.orders.index', compact('orders'));
         dd($orders);
+    }
+
+    public function 	checkboxDeliver(Request $request, $id)
+    {
+        $order = Order::find($id);
+
+        if ($request->has('delivered'))
+        {
+            $order->delivered = $request->delivered;
+        }
+        else
+        {
+            $order->delivered = false;
+        }
+        $order->save();
+        return back();
+
     }
 }

@@ -21,30 +21,40 @@
 
 								<th>Price</th>
 
-								<th>Delivered Status</th>
+
+
+
+
+
 							</tr>
 						</thead>
 						<tbody>
 							@forelse($orders as $order)
+
 								<tr class="text-justify">
+
 							        <td>{{ $order->user->name }}</td>
 							        <td>{{ $order->total_price}}</td>
 
-							       {{--  {!! Form::open([]) !!}
 
-										{!! Form::label('delivered', 'Delivered', []) !!}
-										<input type="checkbox" name="delivered" class="form-control pull-right">
+									{{-- checkbox processing --}}
+							        <div class="pull-right">
+										{!! Form::open(['route' => ['checkbox.deliver', $order->id], 'method' => 'POST']) !!}
 
-									{!! Form::close() !!} --}}
+							        		<input type="checkbox" name="delivered" id="input_checkbox" value="1" {{ $order->delivered == 1 ? "checked" : "" }}>
+											<input type="submit" value="Delivered" id="btn_deliver" style="color: blue;" onclick="setColor('btn_deliver', '#101010')";>
+							        	{!! Form::close() !!}
+									</div>
 
 							        @forelse ($order->products as $item)
-							    	<td>{{ $item->pivot->qty }}</td>
-							        <td>{{ $item->pivot->total_amount }}</td>
-							        <td>Status</td>
+
+								    	<td>{{ $item->pivot->qty }}</td>
+								        <td>{{ $item->pivot->total_amount }}</td>
 							        @empty
 							        	<h3>No Information Found</h3>
 							        @endforelse
 							    </tr>
+
 							@empty
 								<h3>No Order Found</h3>
 							@endforelse
@@ -56,5 +66,21 @@
         </div>
     </div>
 </div>
-
 @endsection
+
+
+<script>
+	var count = $('#input_checkbox').val("1");
+    function setColor(btn, color)
+    {
+        var property = document.getElementById(btn);
+        if (count == 0) {
+            property.style.backgroundColor = "#FFFFFF";
+            count = 1;
+        }
+        else {
+            property.style.backgroundColor = "#7FFF00";
+            count = 0;
+        }
+    }
+</script>
