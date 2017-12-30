@@ -41,6 +41,9 @@ class OrderController extends Controller
         {
             $order->delivered = false;
         }
+
+        var_dump($order);
+
         $order->save();
         return back();
 

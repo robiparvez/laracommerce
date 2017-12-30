@@ -10,12 +10,11 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-   {{--  @yield('title') --}}
-
-
+    @yield('title')
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -84,5 +83,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </body>
 </html>

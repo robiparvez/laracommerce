@@ -171,6 +171,7 @@ return [
         Cartalyst\Stripe\Laravel\StripeServiceProvider::class,
         Laravel\Cashier\CashierServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Evercode1\TraitMaker\TraitMakerServiceProvider::class,
 
         /*
          * Package Service Providers...

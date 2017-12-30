@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
+
+use App\Traits\CaptchaTrait;
+
 
 class RegisterController extends Controller
 {
+    use CaptchaTrait;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -18,8 +22,7 @@ class RegisterController extends Controller
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
-    */
-
+     */
     use RegistersUsers;
 
     /**
@@ -47,10 +50,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $data['g-recaptcha-response'] = $this->captchaCheck();
+
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name'                 => 'required|string|max:255',
+            'email'                => 'required|string|email|max:255|unique:users',
+            'password'             => 'required|string|min:6|confirmed',
+            'g-recaptcha-response' => 'required',
+            'captcha'              => 'required|min:1',
+        ], [
+            'g-recaptcha-response.required' => 'Captcha is required',
+            'captcha.min'                   => 'Wrong captcha, please try again.',
         ]);
     }
 
@@ -63,8 +73,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'name'     => $data['name'],
+            'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }

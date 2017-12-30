@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
+
+
 @section('content')
+
+
+<style type="text/css">
+.g-recaptcha{
+    margin-left: 20px;
+}
+
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -51,6 +61,7 @@
                         </div>
 
                         <div class="form-group">
+
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Login

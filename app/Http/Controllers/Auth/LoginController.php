@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -19,6 +20,7 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    // dd($_POST);
 
     /**
      * Where to redirect users after login.
