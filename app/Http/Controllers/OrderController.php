@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Orders;
 use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -29,22 +31,21 @@ class OrderController extends Controller
         dd($orders);
     }
 
-    public function 	checkboxDeliver(Request $request, $id)
+    public function checkboxDeliver(Request $request, $id)
     {
         $order = Order::find($id);
 
         if ($request->has('delivered'))
         {
+            Mail::to('user@gmail.com')->send(new Orders($order));
             $order->delivered = $request->delivered;
         }
         else
         {
             $order->delivered = false;
         }
-
-        var_dump($order);
-
         $order->save();
+
         return back();
 
     }
