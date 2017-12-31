@@ -7,7 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Orders extends Mailable
+class Orders_shipped extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -20,9 +20,10 @@ class Orders extends Mailable
 
     public function build()
     {
-        return $this->view('mails.viewOrders')->with([
+        return $this->markdown('mails.markdown.viewOrders')->with([
             'name'        => $this->order->user->name,
             'total_price' => $this->order->total_price,
+
         ]);
     }
 }

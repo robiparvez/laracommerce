@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Traits\CaptchaTrait;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
-
-use App\Traits\CaptchaTrait;
-
 
 class RegisterController extends Controller
 {
@@ -73,9 +71,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name'     => $data['name'],
-            'email'    => $data['email'],
+            'name'     => ucfirst($data['name']),
+            'email'    => htmlspecialchars($data['email']),
             'password' => bcrypt($data['password']),
+
         ]);
     }
 }

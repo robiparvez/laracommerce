@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Orders;
+use App\Mail\Orders_shipped;
 use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -37,7 +38,10 @@ class OrderController extends Controller
 
         if ($request->has('delivered'))
         {
-            Mail::to('user@gmail.com')->send(new Orders($order));
+            // Mail::to('user@gmail.com')->send(new Orders($order)); //normal mail
+
+            Mail::to($order->user)->send(new Orders_shipped($order));// using markdown mail
+
             $order->delivered = $request->delivered;
         }
         else
