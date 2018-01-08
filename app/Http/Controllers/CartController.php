@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -33,6 +34,8 @@ class CartController extends Controller
     public function edit($id)
     {
         $products = Product::find($id);
+
+//        $categories = Category::all();
 
         Cart::add($id, $products->name, 1, $products->price, ['size' => 'large']);
         return redirect()->route('cart.index')->with('cart_add', 'Item Added to Cart!');

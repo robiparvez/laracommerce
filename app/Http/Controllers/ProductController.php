@@ -13,7 +13,6 @@ class ProductController extends Controller
         // Many(products) to One(category) Relationhsip
         $products = Product::all();
         return view('admin.products.index', compact('products')); // has category_id field in db
-
     }
 
     public function create()

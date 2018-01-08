@@ -70,6 +70,8 @@
 						@endforelse
 					</tbody>
 
+
+
 					<tfoot>
 						<tr>
 							<td colspan="4">&nbsp;</td>
@@ -95,6 +97,11 @@
 
 						</tr>
 					</tfoot>
+
+                        {{--<div class="col-md-6 col-md-offset-2">--}}
+							{{--testing--}}
+							{{--{!!  !!}--}}
+						{{--</div>--}}
 
 					</table>
 				</div>

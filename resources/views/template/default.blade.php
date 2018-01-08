@@ -14,11 +14,19 @@
         <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
 
+
+        <link rel="stylesheet" href="https://fullcalendar.io/js/fullcalendar-3.0.1/fullcalendar.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.42/css/bootstrap-datetimepicker.min.css">
+
+
+
+
         <link rel="stylesheet" href="{{ asset('dist/css/foundation.min.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}"/>
         <link rel="stylesheet" href="{{ asset('dist/css/admin.css') }}"/>
 
         <link rel="stylesheet" href="{{ asset('dist/css/stripe.css') }}"/>
+
 
     </head>
     <body>
@@ -34,6 +42,8 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
         <script src="https://js.stripe.com/v3/" type="text/javascript"></script>
+
+        @yield('extra-scripts')
 
     </body>
 </html>

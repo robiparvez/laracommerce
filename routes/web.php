@@ -47,3 +47,11 @@ Route::group(['middleware' => 'auth'], function ()
     //Authenticated Users are redirected to shipping page after hitting checkout
     Route::get('shipping-index', 'ShippingController@shippingIndex')->name('shipping');
 });
+
+
+Route::get('get-calendar', 'CalendarController@index')->name('calendar');
+
+
+Route::get('calendar', function() {
+    return view('front.calendar.index');
+})->name('calendar');
